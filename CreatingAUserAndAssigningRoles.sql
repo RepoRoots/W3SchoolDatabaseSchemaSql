@@ -25,3 +25,19 @@ GO
 
 
 SELECT * FROM sys.server_principals WHERE name = 'SaggiH1b';
+
+USE [Prod-SaggiExam];
+GO
+
+-- Grant permission to create tables and manage schema objects
+GRANT ALTER ON SCHEMA::[SaggiImmigration-H1b] TO [SaggiH1b];
+GRANT CREATE TABLE TO [SaggiH1b];
+GRANT CONTROL ON SCHEMA::[SaggiImmigration-H1b] TO [SaggiH1b];
+
+USE [Dev-SaggiExam];
+GO
+
+-- Grant permissions to create a schema
+GRANT CREATE SCHEMA TO [SaggiH1b];
+GRANT ALTER ON SCHEMA::[dbo] TO [SaggiH1b];
+GRANT CONTROL ON SCHEMA::[SaggiImmigration-H1b] TO [SaggiH1b];
